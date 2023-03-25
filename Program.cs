@@ -1,42 +1,43 @@
-﻿Console.Write(«Введите количество элементов массива: «);
-int m = Convert.ToInt32(Console.ReadLine());
-string [] stringArray = new string [m];
-void array(string [] stringArray)
+﻿Console.Write("Количество элементов массива =  ");
+int size = Convert.ToInt32(Console.ReadLine());
+string [] arrayStart = new string [size];
+void start(string [] arrayStart)
 {
-  for (int i = 0;i<stringArray.Length;i++)
+  for (int i = 0;i<arrayStart.Length;i++)
   {
-     Console.WriteLine($»Введите {i+1} элемент массива»);
-     stringArray[i] = Console.ReadLine();
+     Console.Write($"Элемент № {i+1} - ");
+     arrayStart[i] = Console.ReadLine();
   }
 }
-string [] symbol(string [] stringArray)
+string [] end(string [] arrayStart)
 {
-  int n = 0;
-  for (int i = 0;i<stringArray.Length;i++)
+  int count = 0;
+  for (int i = 0;i<arrayStart.Length;i++)
   {
-    if(stringArray[i].Length <=3)
-    n++;
+    if(arrayStart[i].Length <=3)
+    count++;
   }
-  string [] rez = new string [n];
+  string [] arrayEnd = new string [count];
   int j = 0;
-  for (int i = 0;i<stringArray.Length;i++)
+  for (int i=0;i<arrayStart.Length;i++)
   {
-    if(stringArray[i].Length <=3)
+    if(arrayStart[i].Length<=3)
     {
-        rez[j] = stringArray[i];
+        arrayEnd[j] = arrayStart[i];
         j++;
     }
   }
-  return rez;
+  return arrayEnd;
 }
-void printA(string [] stringArray)
+void printArray(string [] arrayStart)
 {
-    Console.Write(«[«);
-    for (int i = 0;i<stringArray.Length;i++)
+    Console.Write($"Массив из строк, длина которых меньше или равна 3 символа : [");
+    for (int i = 0;i<arrayStart.Length;i++)
     {
-    Console.Write($»‘{stringArray[i]}’, «);
+    Console.Write($" {arrayStart[i]}, ");
     }
-    Console.Write(«]»);
+    Console.Write("]");
 }
-array(stringArray);
-printA(symbol(stringArray));
+start(arrayStart);
+
+printArray(end(arrayStart));
